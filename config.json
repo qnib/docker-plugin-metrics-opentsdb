@@ -20,6 +20,11 @@
       "Name": "OPENTSDB_PORT",
       "Settable": ["value"],
       "Value": "4242"
+    },{
+      "Description": "Prints OpenTSDB strings to logs, instead of sending it off",
+      "Name": "DRY_RUN",
+      "Settable": ["value"],
+      "Value": "false"
     }]
 }
 

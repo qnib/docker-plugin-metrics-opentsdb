@@ -38,7 +38,11 @@ func Pusher() {
 			f.AddLabel("hostname", hostname)
 		}
 		msg := f.ToOpenTSDBv1()
-		fmt.Fprintf(conn,  msg + "\n")
+		if os.Getenv("DRY_RUN") != "true" {
+			fmt.Fprintf(conn,  msg + "\n")
+		} else {
+			fmt.Printf(msg + "\n")
+		}
 	}
 
 }
