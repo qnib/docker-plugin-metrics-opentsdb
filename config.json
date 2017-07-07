@@ -1,0 +1,26 @@
+{
+	"description": "Plugin to push metrics to OpenTSDB",
+	"documentation": "-",
+	"entrypoint": ["/docker-metrics-plugin-opentsdb"],
+	"PropagatedMount": "/run/docker",
+	"interface": {
+		"types": ["docker.metricscollector/1.0"],
+		"socket": "metrics.sock"
+	},
+	"Network": {
+		"Type": "host"
+	},
+    "Env": [{
+      "Description": "OpenTSDB host address to send metric to",
+      "Name": "OPENTSDB_HOST",
+      "Settable": ["value"],
+      "Value": "127.0.0.1"
+      },{
+      "Description": "OpenTSDB port address to send metric to",
+      "Name": "OPENTSDB_PORT",
+      "Settable": ["value"],
+      "Value": "4242"
+    }]
+}
+
+

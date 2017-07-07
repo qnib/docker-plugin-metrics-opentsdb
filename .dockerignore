@@ -1,0 +1,6 @@
+Dockerfile.pluginbuild
+LICENSE
+README.md
+config.json
+make.sh
+rootfs

@@ -1,0 +1,109 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "AzjRkOQtVBTwIw4RJLTygFhJs3s=",
+			"path": "github.com/Microsoft/go-winio",
+			"revision": "f533f7a102197536779ea3a8cb881d639e21ec5a",
+			"revisionTime": "2017-05-24T00:36:31Z"
+		},
+		{
+			"checksumSHA1": "nyO7DwRgPMIdpMKseDeL9hlUQVg=",
+			"path": "github.com/Sirupsen/logrus",
+			"revision": "59d0ca41e5faad81cac03f7a7d84ba80d9cc9673",
+			"revisionTime": "2017-07-06T13:44:07Z"
+		},
+		{
+			"checksumSHA1": "RBwpnMpfQt7Jo7YWrRph0Vwe+f0=",
+			"path": "github.com/coreos/go-systemd/activation",
+			"revision": "24036eb3df68550d24a2736c5d013f4e83366866",
+			"revisionTime": "2017-06-09T14:46:27Z"
+		},
+		{
+			"checksumSHA1": "jUfDG3VQsA2UZHvvIXncgiddpYA=",
+			"path": "github.com/docker/go-connections/sockets",
+			"revision": "3ede32e2033de7505e6500d6c868c2b9ed9f169d",
+			"revisionTime": "2017-06-23T20:36:43Z"
+		},
+		{
+			"checksumSHA1": "9/gpnQVuH/eszYpzCGeG1AtOdMM=",
+			"path": "github.com/docker/go-plugins-helpers/sdk",
+			"revision": "abb3e589c0322ddc019c2ec5f587ea0df2024869",
+			"revisionTime": "2017-06-21T09:41:05Z"
+		},
+		{
+			"checksumSHA1": "qlPUeFabwF4RKAOF1H+yBFU1Veg=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "6a1fa9404c0aebf36c879bc50152edcc953910d2",
+			"revisionTime": "2017-06-22T20:25:51Z"
+		},
+		{
+			"checksumSHA1": "bKMZjd2wPw13VwoE7mBeSv5djFA=",
+			"path": "github.com/matttproud/golang_protobuf_extensions/pbutil",
+			"revision": "c12348ce28de40eed0136aa2b644d0ee0650e56c",
+			"revisionTime": "2016-04-24T11:30:07Z"
+		},
+		{
+			"checksumSHA1": "DvwvOlPNAgRntBzt3b3OSRMS2N4=",
+			"path": "github.com/prometheus/client_model/go",
+			"revision": "6f3806018612930941127f2a7c6c453ba2c527d2",
+			"revisionTime": "2017-02-16T18:52:47Z"
+		},
+		{
+			"checksumSHA1": "xfnn0THnqNwjwimeTClsxahYrIo=",
+			"path": "github.com/prometheus/common/expfmt",
+			"revision": "3e6a7635bac6573d43f49f97b47eb9bda195dba8",
+			"revisionTime": "2017-07-07T05:33:19Z"
+		},
+		{
+			"checksumSHA1": "GWlM3d2vPYyNATtTFgftS10/A9w=",
+			"path": "github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg",
+			"revision": "3e6a7635bac6573d43f49f97b47eb9bda195dba8",
+			"revisionTime": "2017-07-07T05:33:19Z"
+		},
+		{
+			"checksumSHA1": "3VoqH7TFfzA6Ds0zFzIbKCUvBmw=",
+			"path": "github.com/prometheus/common/model",
+			"revision": "3e6a7635bac6573d43f49f97b47eb9bda195dba8",
+			"revisionTime": "2017-07-07T05:33:19Z"
+		},
+		{
+			"checksumSHA1": "ziqY/FHc6pialrm9Xd2wUlS9f5w=",
+			"path": "github.com/prometheus/log",
+			"revision": "9a3136781e1ff7bc42736ba4acb81339b1422551",
+			"revisionTime": "2015-10-26T01:24:52Z"
+		},
+		{
+			"checksumSHA1": "rxR3FcoGYrvkoll1/LCa6akn5aI=",
+			"path": "github.com/qnib/prom2json/lib",
+			"revision": "1b90603d00fc81def62a4111baba421f7772b89d",
+			"revisionTime": "2017-07-06T12:03:11Z"
+		},
+		{
+			"checksumSHA1": "2xcr/mhxBFlDjpxe/Mc2Wb4RGR8=",
+			"path": "github.com/tv42/httpunix",
+			"revision": "b75d8614f926c077e48d85f1f8f7885b758c6225",
+			"revisionTime": "2015-04-27T01:28:21Z"
+		},
+		{
+			"checksumSHA1": "N1BVY98+YTHORzLmtlBGpJBA4Tk=",
+			"path": "golang.org/x/net/proxy",
+			"revision": "054b33e6527139ad5b1ec2f6232c3b175bd9a30c",
+			"revisionTime": "2017-07-05T22:25:54Z"
+		},
+		{
+			"checksumSHA1": "Sypcm+UJjiKcT7P7kSp87nVuDtI=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "6faef541c73732f438fb660a212750a9ba9f9362",
+			"revisionTime": "2017-06-30T11:05:18Z"
+		},
+		{
+			"checksumSHA1": "Pki0iA65Dtsjh4gtabPkp/lOa2I=",
+			"path": "golang.org/x/sys/windows",
+			"revision": "6faef541c73732f438fb660a212750a9ba9f9362",
+			"revisionTime": "2017-06-30T11:05:18Z"
+		}
+	],
+	"rootPath": "github.com/qnib/docker-plugin-metrics-opentsdb"
+}
