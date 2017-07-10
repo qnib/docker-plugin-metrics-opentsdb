@@ -1,0 +1,19 @@
+version: '3'
+services:
+  backend:
+    image: qnib/plain-influxdb
+    environment:
+     - INFLUXDB_META_LOGGING=true
+     - INFLUXDB_OPENTSDB_ENABLED=true
+    ports:
+     - 4242:4242
+     - 8083:8083
+     - 8086:8086
+
+  frontend:
+    image: qnib/plain-grafana4
+    ports:
+     - 3000:3000
+    environment:
+     - INFLUXDB_DB=opentsdb
+     - INFLUXDB_HOST=tasks.backend

@@ -2,7 +2,7 @@
 
 set -x
 
-name=${1:-"qnib/docker-metrics-plugin-opentsdb"}
+name=${1:-"qnib/docker-plugin-metrics-opentsdb"}
 docker build -f Dockerfile.pluginbuild -t "$name" .
 
 id=$(docker create "$name")
