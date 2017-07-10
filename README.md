@@ -79,3 +79,7 @@ $ docker plugin set qnib/docker-metrics-plugin-opentsdb:latest OPENTSDB_PORT=424
 $ docker plugin enable qnib/docker-plugin-metrics-opentsdb
 qnib/docker-plugin-metrics-opentsdb
 ```
+
+Now the grafana4 dashboard (in case you deployed it locally: [localhost:3000/dashboard/db/docker-engine](http://localhost:3000/dashboard/db/docker-engine)) should show you the stats.
+
+![](resources/docker_engine_dash.png)
