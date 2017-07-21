@@ -27,14 +27,17 @@ func Pusher() {
 	host := os.Getenv("OPENTSDB_HOST")
 	port := os.Getenv("OPENTSDB_PORT")
 	addr := fmt.Sprintf("%s:%s", host, port)
+
 	conn, err := net.Dial("tcp", addr)
 	if err != nil {
 		fmt.Println(err.Error())
+	} else {
+		fmt.Printf("Connected to '%s'\n", addr)
 	}
+	hostname, hostErr := os.Hostname()
 	for mf := range mfChan {
 		f := p2jm.NewFamily(mf)
-		hostname, err := os.Hostname()
-		if err == nil {
+		if hostErr == nil {
 			f.AddLabel("hostname", hostname)
 		}
 		msg := f.ToOpenTSDBv1()
@@ -52,7 +55,9 @@ func main() {
 	mfChan = make(chan *dto.MetricFamily, 1024)
 	go Pusher()
 	h := sdk.NewHandler(`{"Implements": ["MetricsCollector"]}`)
-	handlers(&h)
+	h.HandleFunc("/MetricsCollector.StartMetrics", startMetrics)
+	h.HandleFunc("/MetricsCollector.StopMetrics", stopMetrics)
+	fmt.Println("Start ServeUnix")
 	if err := h.ServeUnix("metrics", 0); err != nil {
 		panic(err)
 	}
@@ -83,28 +88,26 @@ func PushForward() {
 	}
 }
 
-func handlers(h *sdk.Handler) {
-	h.HandleFunc("/MetricsCollector.StartMetrics", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println(">>>>>>> Got /MetricsCollector.StartMetrics")
-		var err error
-		defer func() {
-			var res struct{ Err string }
-			if err != nil {
-				res.Err = err.Error()
-			}
-			json.NewEncoder(w).Encode(&res)
-		}()
-		mu.Lock()
-		defer mu.Unlock()
-		if ! started {
-			started = true
-			go PushForward()
-
+func startMetrics(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(">>>>>>> Got /MetricsCollector.StartMetrics")
+	var err error
+	defer func() {
+		var res struct{ Err string }
+		if err != nil {
+			res.Err = err.Error()
 		}
-	})
+		json.NewEncoder(w).Encode(&res)
+	}()
+	mu.Lock()
+	defer mu.Unlock()
+	if ! started {
+		started = true
+		go PushForward()
 
-	h.HandleFunc("/MetricsCollector.StopMetrics", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println(">>>>>>> Got /MetricsCollector.StopMetrics")
-		json.NewEncoder(w).Encode(map[string]string{})
-	})
+	}
+}
+
+func stopMetrics(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(">>>>>>> Got /MetricsCollector.StopMetrics")
+	json.NewEncoder(w).Encode(map[string]string{})
 }

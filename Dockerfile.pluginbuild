@@ -2,9 +2,11 @@ FROM golang AS plugin
 WORKDIR /go/src/github.com/qnib/docker-metrics-plugin-opentsdb
 COPY . ./
 RUN CGO_ENABLED=0 go build -tags netgo -o docker-metrics-plugin-opentsdb
+# As `/run/docker` has to be present in the resulting image and it is created from scratch
+# it can not use mkdir and just copies the directory
 RUN mkdir -p /run/docker
 
 FROM scratch
 COPY --from=plugin /go/src/github.com/qnib/docker-metrics-plugin-opentsdb/docker-metrics-plugin-opentsdb /
-COPY --from=plugin /run/docker /run/docker
+WORKDIR /run/docker
 ENTRYPOINT ["/docker-metrics-plugin-opentsdb"]
