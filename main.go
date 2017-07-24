@@ -55,7 +55,7 @@ func Pusher() {
 }
 
 func main() {
-	fmt.Printf(">>>> Start plugin v%s\n". version)
+	fmt.Printf(">>>> Start plugin v%s\n", version)
 	mfChan = make(chan *dto.MetricFamily, 1024)
 	go Pusher()
 	h := sdk.NewHandler(`{"Implements": ["MetricsCollector"]}`)
