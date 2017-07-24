@@ -15,11 +15,21 @@
       "Name": "OPENTSDB_HOST",
       "Settable": ["value"],
       "Value": "127.0.0.1"
-      },{
+    },{
       "Description": "OpenTSDB port address to send metric to",
       "Name": "OPENTSDB_PORT",
       "Settable": ["value"],
       "Value": "4242"
+    },{
+      "Description": "Enable container collection",
+      "Name": "CONTAINER_METRICS_ENABLE",
+      "Settable": ["value"],
+      "Value": "false"
+    },{
+      "Description": "Docker Host to access the engine",
+      "Name": "DOCKER_HOST",
+      "Settable": ["value"],
+      "Value": "tcp://127.0.0.1:2376"
     },{
       "Description": "Prints OpenTSDB strings to logs, instead of sending it off",
       "Name": "DRY_RUN",

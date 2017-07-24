@@ -3,8 +3,10 @@ WORKDIR /go/src/github.com/qnib/docker-metrics-plugin-opentsdb
 COPY . ./
 RUN CGO_ENABLED=0 go build -tags netgo -o docker-metrics-plugin-opentsdb
 RUN mkdir -p /run/docker
+RUN mkdir -p /var/run
 
 FROM scratch
 COPY --from=plugin /go/src/github.com/qnib/docker-metrics-plugin-opentsdb/docker-metrics-plugin-opentsdb /
 COPY --from=plugin /run/docker /run/docker
+COPY --from=plugin /var/run /var/run
 ENTRYPOINT ["/docker-metrics-plugin-opentsdb"]

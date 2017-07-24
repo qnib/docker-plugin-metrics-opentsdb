@@ -50,7 +50,7 @@ func LabelToString(inp map[string]string) (lab []string, err error) {
 	for k, v := range inp {
 		tag, err := SanitizeTags(k, v)
 		if err != nil {
-			log.Printf(err.Error())
+			//log.Printf(err.Error())
 			continue
 		}
 		lab = append(lab, tag)

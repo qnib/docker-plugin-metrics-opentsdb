@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -x
+set -xe
 
 name=${1:-"qnib/docker-plugin-metrics-opentsdb"}
 docker build -f Dockerfile.pluginbuild -t "$name" .
