@@ -10,10 +10,15 @@ import (
 	"fmt"
 	"github.com/tv42/httpunix"
 	dto "github.com/prometheus/client_model/go"
-	p2jm "github.com/qnib/prom2json/lib"
+	"github.com/prometheus/prom2json"
+	"github.com/qnib/prom2all"
 	"github.com/docker/go-plugins-helpers/sdk"
 
 	"os"
+)
+
+const (
+	version = "0.0.0"
 )
 
 var (
@@ -32,23 +37,25 @@ func Pusher() {
 		fmt.Println(err.Error())
 	}
 	for mf := range mfChan {
-		f := p2jm.NewFamily(mf)
+		f := prom2json.NewFamily(mf)
 		hostname, err := os.Hostname()
 		if err == nil {
 			f.AddLabel("hostname", hostname)
 		}
-		msg := f.ToOpenTSDBv1()
-		if os.Getenv("DRY_RUN") != "true" {
-			fmt.Fprintf(conn,  msg + "\n")
-		} else {
-			fmt.Printf(msg + "\n")
+		msgs := prom2all.ToOpenTSDBv1(f)
+		for _, msg := range msgs {
+			if os.Getenv("DRY_RUN") != "true" {
+				fmt.Fprintf(conn,  msg + "\n")
+			} else {
+				fmt.Printf(msg + "\n")
+			}
 		}
 	}
 
 }
 
 func main() {
-	fmt.Println(">>>> Start plugin")
+	fmt.Printf(">>>> Start plugin v%s\n". version)
 	mfChan = make(chan *dto.MetricFamily, 1024)
 	go Pusher()
 	h := sdk.NewHandler(`{"Implements": ["MetricsCollector"]}`)
@@ -78,7 +85,7 @@ func PushForward() {
 			if err != nil {
 				log.Fatal(err)
 			}
-			p2jm.ParseResponse(resp, mfChan)
+			prom2json.ParseResponse(resp, mfChan)
 		}
 	}
 }

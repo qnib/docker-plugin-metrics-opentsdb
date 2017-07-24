@@ -75,10 +75,16 @@
 			"revisionTime": "2015-10-26T01:24:52Z"
 		},
 		{
-			"checksumSHA1": "rxR3FcoGYrvkoll1/LCa6akn5aI=",
-			"path": "github.com/qnib/prom2json/lib",
-			"revision": "1b90603d00fc81def62a4111baba421f7772b89d",
-			"revisionTime": "2017-07-06T12:03:11Z"
+			"checksumSHA1": "2MgT7ER9GkHFZvEvfECzzxQkQjI=",
+			"path": "github.com/prometheus/prom2json",
+			"revision": "c58e08f6cfccd0d053ad121f8ea25bae28a79c6a",
+			"revisionTime": "2017-07-14T17:36:29Z"
+		},
+		{
+			"checksumSHA1": "Y3S+pW7ghPV4s2wEZ7htPLnchZo=",
+			"path": "github.com/qnib/prom2all",
+			"revision": "e3b09d49b501ee67f037978e206290cf4e9031a7",
+			"revisionTime": "2017-07-24T07:15:55Z"
 		},
 		{
 			"checksumSHA1": "2xcr/mhxBFlDjpxe/Mc2Wb4RGR8=",
